@@ -21,7 +21,6 @@ class CalculatorB<Result> {
 
     CalculatorB(List<Command<Result>> commands) {
         this.commands = new ArrayList<Command<Result>> ();
-        // "return" �R�}���h��擪�ɒǉ�
         this.commands.add(new Return2<Result>());
         this.commands.addAll(commands);
         this.nextLine = null;
@@ -38,17 +37,15 @@ class CalculatorB<Result> {
         nextLine = null;
         interactive = showPrompt;
         for(;;) {
-            if(interactive) System.out.println(res); // ���݂̌��ʂ�\��
-            // �R�}���h���󂯕t����v�����v�g��\��
+            if(interactive) System.out.println(res);
             if(interactive) System.out.print(">>> ");
-            // �R�}���h��ǂݍ��ށF��ǂݍs������ΐ�ǂݍs���A�Ȃ���ΐV���ȍs��ǂ�
             String line = nextLine == null ? br.readLine() : nextLine;
-            nextLine = null;         // ��ǂ݃i�V��Ԃɂ���
-            if(line == null) break; // �s���Ȃ���ΏI��
-            if(line.equals("")) continue; // ��Ȃ牽�����Ȃ��ő�����
-            Result newres = dispatch(res, line, br); // �R�}���h��U�蕪���Ď��s
-            if(newres == null) break; // �V�������ʂ��o�Ȃ������肵����I��
-            res = newres;     // �V�������ʂɍX�V
+            nextLine = null;
+            if(line == null) break;
+            if(line.equals("")) continue;
+            Result newres = dispatch(res, line, br);
+            if(newres == null) break;
+            res = newres;
         }
         interactive = _int;
         nextLine = _nl;
@@ -58,15 +55,13 @@ class CalculatorB<Result> {
     List<String> getBlock(BufferedReader br) throws IOException {
         ArrayList<String> lines = new ArrayList<String>();
         for(;;) {
-            // �u���b�N���󂯕t����v�����v�g��\��
             if(interactive) System.out.print("... ");
             nextLine = br.readLine();
-            // ���̍s���Ȃ����A��s���A�擪�Ƀ^�u(\t)���Ȃ� -> �u���b�N�I��
             if(nextLine == null || nextLine.equals("") || nextLine.charAt(0) != '\t') {
                 if(nextLine != null && nextLine.equals("")) nextLine = null;
                 break;
             }
-            lines.add(nextLine.substring(1)); // �擪�̃^�u�������Ēǉ�
+            lines.add(nextLine.substring(1));
         }
         if(lines.size() == 0) {
             throw new RuntimeException("an indented block is expected.");
@@ -75,27 +70,21 @@ class CalculatorB<Result> {
     }
 
     lt dispatch(Result res, String line, BufferedReader br) throws IOException {
-        // �s���g�[�N���ɕ�������
         String [] tokens = tokenize(line);
-        // �e�R�}���h�ɑ΂��ăg�[�N�����^���A
-        // accept ���ꂽ�Ȃ炻�̃R�}���h�����s���A���ʂ�Ԃ�
         for(Command<Result> cmd : commands) {
             if(cmd.accept(tokens)) {
-                // �u���b�N�^�̃R�}���h�Ȃ�A�u���b�N��^����B
                 if(cmd instanceof BlockCommand) {
                     ((BlockCommand<Result>)cmd).setBlock(getBlock(br), this);
                 }
                 return cmd.exec(res);
             }
         }
-        // �R�}���h�����s�ł��Ȃ������ꍇ�͂�����B
-        // �ʓ|�Ȃ̂Ŏ��s����O�𓊂��Ă��܂��B
+
         throw new RuntimeException("unknown command: " + line);
     }
 
     String [] tokenize(String line) {
-        // �蔲���H�@�L����1�����ɕ����B�A���t�@�x�b�g�Ɛ����ƃA���_�[�X�R�A�͂��̂܂ܘA���B
-        // �L���Ȃǂ̑O��ɋ󔒂���ꂽ��ŋ󔒋�؂�ɂ���Ƃ��������Ŏ���
+
         return line.replaceAll("(\\W)"," $1 ").replaceAll("^\\s+","").split("\\s+");
     }
 }
@@ -178,8 +167,7 @@ class IfBIWM extends AbstractBlockCommand {
     }
 
     public BIwithMem exec(BIwithMem res) {
-        if(!res.getValue().equals(BigInteger.ZERO)) { // 0 �ȊO�Ȃ�
-            // �u���b�N���P����s����B
+        if(!res.getValue().equals(BigInteger.ZERO)) {
             res = runOnce(res);
         }
         return res;
@@ -193,8 +181,7 @@ class WhileBIWM extends AbstractBlockCommand {
     }
 
     public BIwithMem exec(BIwithMem res) {
-        while(!res.getValue().equals(BigInteger.ZERO)) { // 0 �ȊO�Ȃ�
-            // �u���b�N���P����s����B
+        while(!res.getValue().equals(BigInteger.ZERO)) {
             res = runOnce(res);
         }
         return res;
@@ -205,9 +192,7 @@ class WhileBIWM extends AbstractBlockCommand {
 class BICalculatorWithBlock {
     public static void main(String [] args) throws Exception {
         boolean promptFlag = !(args.length > 0 && args[0].equals("--no-prompt"));
-        // �W�����͂�ǂޏ���
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        // �d��̃R�}���h��p��
         List<Command<BIwithMem>> cmds = new ArrayList<Command<BIwithMem>>();
         cmds.add(new AddBIWM());
         cmds.add(new SubBIWM());
@@ -222,15 +207,14 @@ class BICalculatorWithBlock {
         cmds.add(new StoreBIWM());
         cmds.add(new ShowVarsBIWM());
         cmds.add(new PrintVarBIWM());
-        cmds.add(new Comment<BIwithMem>()); // �R�����g�p
-        cmds.add(new LoadImmBIWM()); // ����͍Ō�ɒǉ�
-        // �d��𐶐�
+        cmds.add(new Comment<BIwithMem>());
+        cmds.add(new LoadImmBIWM());
         CalculatorB<BIwithMem> calc = new CalculatorB<BIwithMem>(cmds);
         BIwithMem biwm = new BIwithMemFunc();
-        // �d��𓮂���
+
         try {
             calc.run(biwm, br, promptFlag);
-        } catch(ReturnFromFunction rff) { // return �ň�C�ɋA���Ă���
+        } catch(ReturnFromFunction rff) {
         }
     }
 }
@@ -323,8 +307,8 @@ class DefunBIWM extends AbstractBlockCommand {
         if(!(tokens.length >= 2 && tokens[0].equals("def"))) {
             return false;
         }
-        x = tokens[1]; // �֐������L�����Ă���
-        args = new ArrayList<String>();  // �������L�����Ă���
+        x = tokens[1];
+        args = new ArrayList<String>();
         for(int i = 2; i < tokens.length; i++) {
             args.add(tokens[i]);
         }
@@ -347,8 +331,8 @@ class CallBIWM extends BIorVarWM {
         if(!(tokens.length >= 2 && tokens[0].equals("call"))) {
             return false;
         }
-        x = tokens[1]; // �֐������L�����Ă���
-        args = new ArrayList<String>();  // �������L�����Ă���
+        x = tokens[1];
+        args = new ArrayList<String>();
         for(int i = 2; i < tokens.length; i++) {
             args.add(tokens[i]);
         }
