@@ -1,17 +1,17 @@
 import java.util.*;
-public class BFSMazeSolver {
+public class DFSMazeSolver {
     public static <Pos> void solve(Maze<Pos> m) {
         HashMap<Pos, Pos> prev = new HashMap<Pos, Pos>();
 
-        LinkedList<Pos> que = new LinkedList<Pos>();
+        Stack<Pos> stack = new Stack<Pos>();
         HashSet<Pos> seen = new HashSet<Pos>();
 
         Pos st = m.getStart();
-        que.add(m.getStart());
+        stack.push(m.getStart());
         seen.add(m.getStart());
 
-        while(que.size() > 0) {
-            Pos p = que.remove();
+        while(stack.size() > 0) {
+            Pos p = stack.pop();
             if(m.isGoal(p)) {
                 ArrayList<Pos> ps = new ArrayList<Pos>();
                 for(Pos c = p; c != null; c = prev.get(c)) {
@@ -24,7 +24,7 @@ public class BFSMazeSolver {
             List<Pos> ns = m.getNeighbors(p);
             for( Pos n : ns ) {
                 if(!seen.contains(n)) {
-                    que.add(n);
+                    stack.push(n);
                     seen.add(n);
                     prev.put(n, p);
                 }

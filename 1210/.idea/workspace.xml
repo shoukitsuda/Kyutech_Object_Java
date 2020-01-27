@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="978ee8db-74ea-4cb7-b064-2047a895ba05" name="Default Changelist" comment="" />
+    <list default="true" id="978ee8db-74ea-4cb7-b064-2047a895ba05" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BFSMazeSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/BFSMazeSolver.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="wnQuUtXy" />
   </component>
   <component name="ProjectId" id="1Ulvu8xJVcJpHi1vhvPsjxUGgU4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -25,6 +32,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -54,6 +62,8 @@
       <option name="presentableId" value="Default" />
       <updated>1575944215743</updated>
       <workItem from="1575944219668" duration="5154000" />
+      <workItem from="1580143074409" duration="9000" />
+      <workItem from="1580143507619" duration="560000" />
     </task>
     <servers />
   </component>
@@ -61,17 +71,33 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="553" y="347" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1575952186244">
+    <state x="553" y="347" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1579851882042">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="553" y="347" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1440.900@0.0.1440.900" timestamp="1575952186244" />
+    <state x="553" y="347" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1440.900@0.0.1440.900" timestamp="1579851882042" />
     <state x="221" y="89" key="SettingsEditor" timestamp="1575953389524">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1575953389524" />
-    <state x="373" y="284" key="com.intellij.ide.util.TipDialog" timestamp="1575944227040">
+    <state x="373" y="284" key="com.intellij.ide.util.TipDialog" timestamp="1580143511253">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="373" y="284" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1575944227040" />
+    <state x="373" y="284" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1580143511253" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BFSMazeSolver.java</url>
+          <line>5</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DFSMazeSolver.java</url>
+          <line>5</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
