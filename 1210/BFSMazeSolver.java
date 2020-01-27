@@ -1,8 +1,8 @@
 import java.util.*;
 public class BFSMazeSolver {
     public static <Pos> void solve(Maze<Pos> m) {
-        HashMap<Pos, Pos> prev = new HashMap<Pos, Pos>();
 
+        HashMap<Pos, Pos> prev = new HashMap<Pos, Pos>();
         LinkedList<Pos> que = new LinkedList<Pos>();
         HashSet<Pos> seen = new HashSet<Pos>();
 

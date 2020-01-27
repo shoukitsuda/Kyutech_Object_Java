@@ -1,8 +1,8 @@
 import java.util.*;
 public class DFSMazeSolver {
     public static <Pos> void solve(Maze<Pos> m) {
-        HashMap<Pos, Pos> prev = new HashMap<Pos, Pos>();
 
+        HashMap<Pos, Pos> prev = new HashMap<Pos, Pos>();
         Stack<Pos> stack = new Stack<Pos>();
         HashSet<Pos> seen = new HashSet<Pos>();
 

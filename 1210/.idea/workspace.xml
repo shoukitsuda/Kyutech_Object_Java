@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="978ee8db-74ea-4cb7-b064-2047a895ba05" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BFSMazeSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/BFSMazeSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DFSMazeSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/DFSMazeSolver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +63,7 @@
       <updated>1575944215743</updated>
       <workItem from="1575944219668" duration="5154000" />
       <workItem from="1580143074409" duration="9000" />
-      <workItem from="1580143507619" duration="560000" />
+      <workItem from="1580143507619" duration="2867000" />
     </task>
     <servers />
   </component>
